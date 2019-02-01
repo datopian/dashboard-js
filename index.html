@@ -79,14 +79,14 @@
                           GDP (UK)
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="card card-height">
                         <div class="card-header">
-                          Employment
+                          Employment (total jobs)
                         </div>
                         <div class="card-body">
                           <div class="react-me" data-type="data-views"></div>
@@ -128,7 +128,7 @@
                           Crime
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                           Life expectancy
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                           Air quality (PM2.5)
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                           House prices (“Median Housing Affordability”)
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
                           Transport (delays)
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                           Transport (number of journeys)
                         </div>
                         <div class="card-body">
-                          <div class="react-me" data-type="data-views"></div>
+                          <!-- <div class="react-me" data-type="data-views"></div> -->
                         </div>
                     </div>
                 </div>
@@ -226,6 +226,142 @@
         </div>
     </footer>
     <!--End Footer-->
+    <script type="text/javascript">
+      var DP_ID = {
+        "name": "london-dashboard",
+        "resources": [
+          {
+            "format": "csv",
+            "mediatype": "text/csv",
+            "name": "london-total-jobs",
+            "path": "https://datahub.io/core/total-jobs/r/0.csv",
+            "schema": {
+              "fields": [
+                {
+                "format": "%Y-%m-%d",
+                "name": "date",
+                "type": "date"
+                },
+                {
+                "format": "default",
+                "name": "total_workforce_jobs_uk",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "total_workforce_jobs_london",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "employee_jobs_uk",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "employee_jobs_london",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "self_employee_jobs_uk",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "self_employee_jobs_london",
+                "type": "integer"
+                },
+                {
+                "format": "default",
+                "name": "total_workforce_jobs_index_uk",
+                "type": "string"
+                },
+                {
+                "format": "default",
+                "name": "total_workforce_jobs_index_london",
+                "type": "string"
+                },
+                {
+                "format": "default",
+                "name": "employee_jobs_index_uk",
+                "type": "string"
+                },
+                {
+                "format": "default",
+                "name": "employee_jobs_index_london",
+                "type": "string"
+                },
+                {
+                "format": "default",
+                "name": "self_employee_jobs_index_uk",
+                "type": "string"
+                },
+                {
+                "format": "default",
+                "name": "self_employee_jobs_index_london",
+                "type": "string"
+                }
+              ],
+              "missingValues": [
+                ""
+              ]
+            }
+          },
+          {
+            "format": "csv",
+            "mediatype": "text/csv",
+            "name": "population-projection",
+            "path": "https://datahub.io/core/demographics/r/0.csv",
+            "schema": {
+              "fields": [
+                {
+                  "format": "default",
+                  "name": "year",
+                  "type": "string"
+                },
+                {
+                  "format": "default",
+                  "name": "population",
+                  "type": "string"
+                }
+              ],
+              "missingValues": [
+                ""
+              ]
+            }
+          }
+        ],
+        "views": [
+          {
+            "name": "london-total-jobs",
+            "resources": ["london-total-jobs"],
+            "specType": "simple",
+            "spec": {
+              "type": "lines-and-points",
+              "group": "date",
+              "series": [
+                "employee_jobs_london",
+                "self_employee_jobs_london"
+              ]
+            }
+          },
+          {
+            "name": "population-projection",
+            "resources": ["population-projection"],
+            "specType": "simple",
+            "spec": {
+              "type": "bar",
+              "group": "year",
+              "series": [
+                "population"
+              ]
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="text/javascript" src="frontend-showcase-js/dist/bundle.js"></script>
 </body>
 
 </html>
