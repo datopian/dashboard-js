@@ -44,12 +44,13 @@ a {
 }
 .wrapper .main-heading
 {
-    margin:90px 0px 70px 0;
+    margin:90px 0px 20px 0;
 }
 .wrapper .main-heading h1
 {
     font-size:45px;
     font-family: 'Source Serif Pro', serif;
+    letter-spacing: -1px;
 }
 .wrapper .main-heading p
 {
@@ -77,12 +78,20 @@ a {
 }
 
 /* Start Card */
+
 .wrapper .background-card
 {
-    background:#eee;
     padding:20px;
-    border-radius:6px;
+    border-radius:2px;
     margin-top:15px;
+}
+
+.wrapper .background-card .info{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 1px 0 10px 0;
+    border-top: 2px solid rgba(0,0,0,.15);
+    border-bottom: 2px solid rgba(0,0,0,.15);
 }
 
 .wrapper .background-card h2
@@ -102,7 +111,7 @@ a {
 }
 
 .wrapper .card-height{
-    height:430px;
+    height:450px;
     overflow: hidden;
 }
 .card-mrg
@@ -112,9 +121,42 @@ a {
 .wrapper .card
 {
     margin-top: 15px;
-    border-radius:5px;
+    border-radius:2px;
 }
 
+/* Card contents */
+.card-body .content-top{
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 10px;
+}
+.card-body .content-top h4 {
+    font-size:20px;
+    color:#2b2b2b;
+}
+.card-body .content-top p {
+    font-size:14px;
+    color:#6f6f6f;
+}
+
+.card-body .content-main {
+    padding:15px 0;
+    height:315px;
+    overflow: hidden;
+}
+
+.card-body .content-bottom p{
+    font-size:12px;
+    color:#6f6f6f;
+}
+
+.card-header:first-child {
+    border-radius: 2px 2px 0 0;
+}
+
+.card-header {
+    padding: 7px 20px;
+    font-weight: 600;
+}
 .wrapper .card .card-body {
     padding:10px;
 }
@@ -132,10 +174,28 @@ a {
     margin-top:40px;
 }
 
+.background-card.card-blue, .card-header.card-blue {
+    background-color:#4678a4;
+    color:#fff;
+}
 
+.background-card.card-purple, .card-header.card-purple {
+    background-color:#807085;
+    color:#fff;
+}
+
+.background-card.card-green, .card-header.card-green {
+    background-color:#557c85;
+    color:#fff;
+}
+
+.background-card.card-red, .card-header.card-red {
+    background-color:#a95f6d;
+    color:#fff;
+}
 /* footer css */
 footer {
-    margin-top:180px;
+    margin-top:220px;
     background-color:#3c3c3c;
     padding:20px 0;
 }
