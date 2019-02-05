@@ -246,7 +246,7 @@ DP_ID.views = [
     "specType": "vega",
     "spec": {
       "$schema": "https://vega.github.io/schema/vega/v3.json",
-      "width": 240,
+      "width": 195,
       "height": 160,
       "padding": 0,
       "data": [
@@ -273,18 +273,10 @@ DP_ID.views = [
           "name": "roadside",
           "type": "linear",
           "range": "height",
+          "zero": false,
           "domain": {
             "data": "monthly-averages",
             "field": "[London Mean Roadside PM2.5 Particulate (ug/m3)]"
-          }
-        },
-        {
-          "name": "background",
-          "type": "linear",
-          "range": "height",
-          "domain": {
-            "data": "monthly-averages",
-            "field": "[London Mean Background PM2.5 Particulate (ug/m3)]"
           }
         }
       ],
@@ -296,8 +288,8 @@ DP_ID.views = [
           "format": "%Y",
           "domain": false,
           "ticks": false,
-          "labelAngle": 90,
-          "labelPadding": 10
+          "labelPadding": 10,
+          "labelBound": true
         },
         {
           "orient": "right",
@@ -315,8 +307,92 @@ DP_ID.views = [
             "enter": {
               "x": {"scale": "x", "field": "Month"},
               "y": {"scale": "roadside", "field": "[London Mean Roadside PM2.5 Particulate (ug/m3)]"},
-              "strokeWidth": {"value": 1},
+              "strokeWidth": {"value": 2},
               "stroke": {"value": "#A95F6D"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "monthly-averages"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 11},
+              "strokeWidth": {"value": 1},
+              "stroke": {"value": "gray"},
+              "strokeDash": {"value": [5,5]}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "monthly-averages"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 23},
+              "strokeWidth": {"value": 1},
+              "stroke": {"value": "gray"},
+              "strokeDash": {"value": [5,5]}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "monthly-averages"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 35},
+              "strokeWidth": {"value": 1},
+              "stroke": {"value": "gray"},
+              "strokeDash": {"value": [5,5]}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "fill": {"value": "gray"},
+              "zindex": {"value": 10},
+              "text": {"value": "Low (index 1)"},
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 11},
+              "dx": {"value": -55},
+              "font": {"value": "Lato"},
+              "fontSize": {"value": 9}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "fill": {"value": "gray"},
+              "zindex": {"value": 10},
+              "text": {"value": "Low (index 2)"},
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 23},
+              "dx": {"value": -55},
+              "font": {"value": "Lato"},
+              "fontSize": {"value": 9}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "fill": {"value": "gray"},
+              "zindex": {"value": 10},
+              "text": {"value": "Low (index 3): Enjoy your usual outdoor activities up to this level."},
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "roadside", "value": 35.5},
+              "dx": {"value": -55},
+              "font": {"value": "Lato"},
+              "fontSize": {"value": 9}
             }
           }
         }
