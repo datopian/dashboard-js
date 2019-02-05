@@ -3,7 +3,18 @@ body
     background:#f8f8f8;
     font-family: 'Lato', sans-serif;
 }
-p,h1,h2,h3,h4,h5,h6,ul,li 
+
+.datahub-meta {
+  display: none;
+}
+.share-and-embed {
+  display: none;
+}
+.react-me {
+  padding: 15px 0;
+}
+
+p,h1,h2,h3,h4,h5,h6,ul,li
 {
     padding:0px;
     margin:0px;
