@@ -228,6 +228,75 @@ var DP_ID = {
           ""
         ]
       }
+    },
+    {
+      "encoding": "utf-8",
+      "format": "csv",
+      "mediatype": "text/xls",
+      "name": "key-trends",
+      "path": "https://datahub.io/london/underground-performance/r/key-trends.csv",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Period and Financial year",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Reporting Period",
+            "type": "integer"
+          },
+          {
+            "format": "default",
+            "name": "Days in period",
+            "type": "integer"
+          },
+          {
+            "format": "%Y-%m-%d %H:%M:%S",
+            "name": "Period ending",
+            "type": "datetime"
+          },
+          {
+            "format": "%Y-%m-%d %H:%M:%S",
+            "name": "Month",
+            "type": "datetime"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Number of Lost Customer Hours",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Operated Kms (Peak and Off Peak)",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "% of Scheduled Operated",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Excess Journey Time (mins)",
+            "type": "number"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
     }
   ]
 };
@@ -477,6 +546,83 @@ DP_ID.views = [
               "dx": {"value": -55},
               "font": {"value": "Lato"},
               "fontSize": {"value": 9}
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "resources": ["key-trends"],
+    "specType": "vega",
+    "spec": {
+      "$schema": "https://vega.github.io/schema/vega/v3.json",
+      "width": 225,
+      "height": 160,
+      "padding": 0,
+      "data": [
+        {
+          "name": "key-trends",
+          "format": {
+            "parse": {
+              "Month": "date"
+            }
+          }
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "utc",
+          "range": "width",
+          "domain": {
+            "data": "key-trends",
+            "field": "Month"
+          }
+        },
+        {
+          "name": "hours",
+          "type": "linear",
+          "range": "height",
+          "zero": false,
+          "domain": {
+            "data": "key-trends",
+            "field": "Number of Lost Customer Hours"
+          }
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "labelFont": "Lato",
+          "format": "%Y",
+          "domain": false,
+          "ticks": false,
+          "labelPadding": 10,
+          "labelBound": true
+        },
+        {
+          "orient": "right",
+          "scale": "hours",
+          "labelFont": "Lato",
+          "format": "s",
+          "domain": false,
+          "ticks": false,
+          "title": "hours",
+          "titleFontWeight": "light"
+        }
+      ],
+      "marks": [
+        {
+          "type": "line",
+          "from": {"data": "key-trends"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Month"},
+              "y": {"scale": "hours", "field": "Number of Lost Customer Hours"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#A95F6D"}
             }
           }
         }
