@@ -144,6 +144,90 @@ var DP_ID = {
           ""
         ]
       }
+    },
+    {
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/xls",
+      "name": "london-public-transport",
+      "path": "https://datahub.io/london/public-transport/r/london-public-transport.csv",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Period and Financial year",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Reporting Period",
+            "type": "integer"
+          },
+          {
+            "format": "default",
+            "name": "Days in period",
+            "type": "integer"
+          },
+          {
+            "format": "%Y-%m-%d %H:%M:%S",
+            "name": "Period beginning",
+            "type": "datetime"
+          },
+          {
+            "format": "%Y-%m-%d %H:%M:%S",
+            "name": "Period ending",
+            "type": "datetime"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Bus journeys (m)",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Underground journeys (m)",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "DLR Journeys (m)",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "Tram Journeys (m)",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "Overground Journeys (m)",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "Emirates Airline Journeys (m)",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "TfL Rail Journeys (m)",
+            "type": "any"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
     }
   ]
 };
@@ -393,6 +477,151 @@ DP_ID.views = [
               "dx": {"value": -55},
               "font": {"value": "Lato"},
               "fontSize": {"value": 9}
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "resources": ["london-public-transport"],
+    "specType": "vega",
+    "spec": {
+      "$schema": "https://vega.github.io/schema/vega/v3.json",
+      "width": 230,
+      "height": 160,
+      "padding": 0,
+      "data": [
+        {
+          "name": "london-public-transport",
+          "format": {
+            "parse": {
+              "Period beginning": "date"
+            }
+          },
+          "transform":[
+            {
+              "type": "formula",
+              "expr": "parseInt(datum['DLR Journeys (m)']) + parseInt(datum['Tram Journeys (m)']) + parseInt(datum['Overground Journeys (m)']) || 0 + parseInt(datum['Emirates Airline Journeys (m)']) || 0 + parseInt(datum['TfL Rail Journeys (m)']) || 0",
+              "as": "other total"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "utc",
+          "range": "width",
+          "domain": {
+            "data": "london-public-transport",
+            "field": "Period beginning"
+          }
+        },
+        {
+          "name": "journeys",
+          "type": "linear",
+          "range": "height",
+          "domain": {
+            "data": "london-public-transport",
+            "field": "[Bus journeys (m)]"
+          }
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "labelFont": "Lato",
+          "format": "%Y",
+          "domain": false,
+          "ticks": false,
+          "labelPadding": 10,
+          "labelBound": true
+        },
+        {
+          "orient": "right",
+          "scale": "journeys",
+          "labelFont": "Lato",
+          "domain": false,
+          "ticks": false,
+          "title": "millions",
+          "titleFontWeight": "light"
+        }
+      ],
+      "marks": [
+        {
+          "type": "line",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Period beginning"},
+              "y": {"scale": "journeys", "field": "[Bus journeys (m)]"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#A95F6D"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Period beginning"},
+              "y": {"scale": "journeys", "field": "[Underground journeys (m)]"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#ECAFAF"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Period beginning"},
+              "y": {"scale": "journeys", "field": "other total"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#D7706C"}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "text": {"value": "Bus"},
+              "y": {"scale": "journeys", "value": 200},
+              "fill": {"value": "#A95F6D"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "text": {"value": "Underground"},
+              "y": {"scale": "journeys", "value": 100},
+              "fill": {"value": "#ECAFAF"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "london-public-transport"},
+          "encode": {
+            "enter": {
+              "text": {"value": "All other"},
+              "y": {"scale": "journeys", "value": 25},
+              "fill": {"value": "#D7706C"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
             }
           }
         }
