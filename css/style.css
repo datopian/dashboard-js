@@ -154,7 +154,8 @@ a {
 }
 
 .card-header {
-    padding: 7px 20px;
+    padding: 7px 10px;
+    font-size: 13.5px;
     font-weight: 600;
 }
 .wrapper .card .card-body {
