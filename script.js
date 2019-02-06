@@ -64,9 +64,9 @@ var DP_ID = {
             "type": "string"
           },
           {
-            "format": "default",
+            "format": "%Y-%m-%d",
             "name": "Year",
-            "type": "year"
+            "type": "date"
           },
           {
             "format": "default",
@@ -736,7 +736,7 @@ DP_ID.views = [
     "specType": "vega",
     "spec": {
       "$schema": "https://vega.github.io/schema/vega/v3.json",
-      "width": 250,
+      "width": 245,
       "height": 160,
       "padding": 0,
       "data": [
@@ -825,7 +825,7 @@ DP_ID.views = [
     "specType": "vega",
     "spec": {
       "$schema": "https://vega.github.io/schema/vega/v3.json",
-      "width": 228,
+      "width": 238,
       "height": 160,
       "padding": 0,
       "data": [
@@ -878,7 +878,6 @@ DP_ID.views = [
           "format": "s",
           "domain": false,
           "ticks": false,
-          "title": "people",
           "titleFontWeight": "light"
         }
       ],
@@ -957,10 +956,10 @@ DP_ID.views = [
           "orient": "right",
           "scale": "value",
           "labelFont": "Lato",
+          "grid": true,
           "format": "s",
           "domain": false,
           "ticks": false,
-          "title": "recorded offences",
           "titleFontWeight": "light"
         }
       ],
