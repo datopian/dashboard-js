@@ -4,6 +4,48 @@ var DP_ID = {
     {
       "encoding": "utf-8",
       "format": "csv",
+      "mediatype": "text/csv",
+      "name": "london-home-index",
+      "path": "https://datahub.io/london/home-affordability/r/london-home-index.csv",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "New Code",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Old Code",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Area",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "Value",
+            "type": "any"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "encoding": "utf-8",
+      "format": "csv",
       "mediatype": "text/xlsx",
       "name": "recorded-offences",
       "path": "https://datahub.io/london/crime/r/recorded-offences.csv",
@@ -1090,6 +1132,84 @@ DP_ID.views = [
               "dx": {"value": -55},
               "font": {"value": "Lato"},
               "fontSize": {"value": 9}
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "resources": ["london-home-index"],
+    "specType": "vega",
+    "spec": {
+      "$schema": "https://vega.github.io/schema/vega/v3.json",
+      "width": 238,
+      "height": 160,
+      "padding": 0,
+      "data": [
+        {
+          "name": "london-home-index",
+          "format": {
+            "parse": {
+              "Year": "date"
+            }
+          },
+          "transform": [
+            {
+              "type": "filter",
+              "expr": "datum.Area == 'London'"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "utc",
+          "range": "width",
+          "domain": {
+            "data": "london-home-index",
+            "field": "Year"
+          }
+        },
+        {
+          "name": "value",
+          "type": "linear",
+          "range": "height",
+          "zero": true,
+          "domain": {
+            "data": "london-home-index",
+            "field": "Value"
+          }
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "labelFont": "Lato",
+          "domain": false,
+          "ticks": false,
+          "labelPadding": 10,
+        },
+        {
+          "orient": "right",
+          "scale": "value",
+          "labelFont": "Lato",
+          "domain": false,
+          "ticks": false
+        }
+      ],
+      "marks": [
+        {
+          "type": "line",
+          "from": {"data": "london-home-index"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "value", "field": "Value"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#A95F6D"}
             }
           }
         }
