@@ -3,6 +3,228 @@ var DP_ID = {
   "resources": [
     {
       "encoding": "utf-8",
+      "format": "csv",
+      "mediatype": "text/xls",
+      "name": "population",
+      "path": "https://datahub.io/london/population/r/population.csv",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1961",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1962",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1963",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1964",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1965",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1966",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1967",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1968",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1969",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1970",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1971",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1972",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1973",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1974",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1975",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1976",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1977",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1978",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1979",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1980",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1981",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1982",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1983",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1984",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1985",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1986",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1987",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1988",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1989",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1990",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1991",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1992",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1993",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1994",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1995",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1996",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1997",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1998",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "PERSONS ALL AGES 1999",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "Value",
+            "type": "integer"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "encoding": "utf-8",
       "format": "json",
       "mediatype": "text/xls",
       "name": "gva",
@@ -514,6 +736,84 @@ DP_ID.views = [
               "stroke": {
                 "value": "#A95F6D"
               }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "resources": ["population"],
+    "specType": "vega",
+    "spec": {
+      "$schema": "https://vega.github.io/schema/vega/v3.json",
+      "width": 228,
+      "height": 160,
+      "padding": 0,
+      "data": [
+        {
+          "name": "population",
+          "format": {
+            "parse": {
+              "Year": "date"
+            }
+          }
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "utc",
+          "range": "width",
+          "domain": {
+            "data": "population",
+            "field": "Year"
+          }
+        },
+        {
+          "name": "value",
+          "type": "linear",
+          "range": "height",
+          "zero": false,
+          "domain": {
+            "data": "population",
+            "field": "Value"
+          }
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "labelFont": "Lato",
+          "format": "%Y",
+          "domain": false,
+          "ticks": false,
+          "labelPadding": 10,
+          "labelBound": true
+        },
+        {
+          "orient": "right",
+          "scale": "value",
+          "labelFont": "Lato",
+          "grid": true,
+          "format": "s",
+          "domain": false,
+          "ticks": false,
+          "title": "people",
+          "titleFontWeight": "light"
+        }
+      ],
+      "marks": [
+        {
+          "type": "line",
+          "from": {"data": "population"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "value", "field": "Value"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#A95F6D"}
             }
           }
         }
