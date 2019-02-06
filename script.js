@@ -4,6 +4,42 @@ var DP_ID = {
     {
       "encoding": "utf-8",
       "format": "csv",
+      "mediatype": "text/xlsx",
+      "name": "recorded-offences",
+      "path": "https://datahub.io/london/crime/r/recorded-offences.csv",
+      "profile": "tabular-data-resource",
+      "quotechar": "\"",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "Code",
+            "type": "any"
+          },
+          {
+            "format": "default",
+            "name": "Borough",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "format": "default",
+            "name": "Value",
+            "type": "any"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "encoding": "utf-8",
+      "format": "csv",
       "mediatype": "text/xls",
       "name": "population",
       "path": "https://datahub.io/london/population/r/population.csv",
@@ -808,6 +844,88 @@ DP_ID.views = [
         {
           "type": "line",
           "from": {"data": "population"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "value", "field": "Value"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#A95F6D"}
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "resources": ["recorded-offences"],
+    "specType": "vega",
+    "spec": {
+      "$schema": "https://vega.github.io/schema/vega/v3.json",
+      "width": 228,
+      "height": 160,
+      "padding": 0,
+      "data": [
+        {
+          "name": "recorded-offences",
+          "format": {
+            "parse": {
+              "Year": "date"
+            }
+          },
+          "transform": [
+            {
+              "type": "filter",
+              "expr": "datum.Borough == 'Inner London'"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "utc",
+          "range": "width",
+          "domain": {
+            "data": "recorded-offences",
+            "field": "Year"
+          }
+        },
+        {
+          "name": "value",
+          "type": "linear",
+          "range": "height",
+          "zero": false,
+          "domain": {
+            "data": "recorded-offences",
+            "field": "Value"
+          }
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "labelFont": "Lato",
+          "domain": false,
+          "ticks": false,
+          "labelPadding": 10,
+          "labelBound": true
+        },
+        {
+          "orient": "right",
+          "scale": "value",
+          "labelFont": "Lato",
+          "format": "s",
+          "domain": false,
+          "ticks": false,
+          "title": "recorded offences",
+          "titleFontWeight": "light"
+        }
+      ],
+      "marks": [
+        {
+          "type": "line",
+          "from": {"data": "recorded-offences"},
           "encode": {
             "enter": {
               "x": {"scale": "x", "field": "Year"},
