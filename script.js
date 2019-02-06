@@ -1206,11 +1206,25 @@ DP_ID.views = [
             "parse": {
               "Year": "date"
             }
-          },
+          }
+        },
+        {
+          "name": "london",
+          "source": "london-home-index",
           "transform": [
             {
               "type": "filter",
               "expr": "datum.Area == 'London'"
+            }
+          ]
+        },
+        {
+          "name": "england",
+          "source": "london-home-index",
+          "transform": [
+            {
+              "type": "filter",
+              "expr": "datum.Area == 'England'"
             }
           ]
         }
@@ -1221,7 +1235,7 @@ DP_ID.views = [
           "type": "utc",
           "range": "width",
           "domain": {
-            "data": "london-home-index",
+            "data": "london",
             "field": "Year"
           }
         },
@@ -1231,9 +1245,11 @@ DP_ID.views = [
           "range": "height",
           "zero": true,
           "domain": {
-            "data": "london-home-index",
+            "data": "london",
             "field": "Value"
-          }
+          },
+          "domainMin": 2,
+          "domainMax": 16
         }
       ],
       "axes": [
@@ -1256,13 +1272,51 @@ DP_ID.views = [
       "marks": [
         {
           "type": "line",
-          "from": {"data": "london-home-index"},
+          "from": {"data": "london"},
           "encode": {
             "enter": {
               "x": {"scale": "x", "field": "Year"},
               "y": {"scale": "value", "field": "Value"},
               "strokeWidth": {"value": 2},
               "stroke": {"value": "#A95F6D"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "england"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "value", "field": "Value"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#ECAFAF"}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "london"},
+          "encode": {
+            "enter": {
+              "text": {"value": "London"},
+              "y": {"scale": "value", "value": 9},
+              "fill": {"value": "#A95F6D"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "england"},
+          "encode": {
+            "enter": {
+              "text": {"value": "England"},
+              "y": {"scale": "value", "value": 3},
+              "fill": {"value": "#ECAFAF"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
             }
           }
         }
