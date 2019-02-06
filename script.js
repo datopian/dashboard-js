@@ -285,9 +285,9 @@ var DP_ID = {
             "type": "any"
           },
           {
-            "format": "default",
+            "format": "%Y-%m-%d",
             "name": "Year",
-            "type": "year"
+            "type": "date"
           },
           {
             "format": "default",
@@ -327,9 +327,9 @@ var DP_ID = {
             "type": "string"
           },
           {
-            "format": "default",
+            "format": "%Y-%m-%d",
             "name": "Year",
-            "type": "year"
+            "type": "date"
           },
           {
             "decimalChar": ".",
@@ -902,7 +902,7 @@ DP_ID.views = [
     "specType": "vega",
     "spec": {
       "$schema": "https://vega.github.io/schema/vega/v3.json",
-      "width": 228,
+      "width": 218,
       "height": 160,
       "padding": 0,
       "data": [
@@ -912,11 +912,25 @@ DP_ID.views = [
             "parse": {
               "Year": "date"
             }
-          },
+          }
+        },
+        {
+          "name": "inner-london",
+          "source": "recorded-offences",
           "transform": [
             {
               "type": "filter",
               "expr": "datum.Borough == 'Inner London'"
+            }
+          ]
+        },
+        {
+          "name": "outer-london",
+          "source": "recorded-offences",
+          "transform": [
+            {
+              "type": "filter",
+              "expr": "datum.Borough == 'Outer London'"
             }
           ]
         }
@@ -939,7 +953,9 @@ DP_ID.views = [
           "domain": {
             "data": "recorded-offences",
             "field": "Value"
-          }
+          },
+          "domainMax": 600000,
+          "domainMin": 250000
         }
       ],
       "axes": [
@@ -956,23 +972,61 @@ DP_ID.views = [
           "orient": "right",
           "scale": "value",
           "labelFont": "Lato",
-          "grid": true,
           "format": "s",
           "domain": false,
           "ticks": false,
+          "title": "recorded offences",
           "titleFontWeight": "light"
         }
       ],
       "marks": [
         {
           "type": "line",
-          "from": {"data": "recorded-offences"},
+          "from": {"data": "inner-london"},
           "encode": {
             "enter": {
               "x": {"scale": "x", "field": "Year"},
               "y": {"scale": "value", "field": "Value"},
               "strokeWidth": {"value": 2},
               "stroke": {"value": "#A95F6D"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "outer-london"},
+          "encode": {
+            "enter": {
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "value", "field": "Value"},
+              "strokeWidth": {"value": 2},
+              "stroke": {"value": "#ECAFAF"}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "inner-london"},
+          "encode": {
+            "enter": {
+              "text": {"value": "Inner London"},
+              "y": {"scale": "value", "value": 570000},
+              "fill": {"value": "#A95F6D"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {"data": "outer-london"},
+          "encode": {
+            "enter": {
+              "text": {"value": "Outer London"},
+              "y": {"scale": "value", "value": 440000},
+              "fill": {"value": "#ECAFAF"},
+              "font": {"value": "Lato"},
+              "fontWeight": {"value": 100}
             }
           }
         }
