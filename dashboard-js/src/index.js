@@ -4,7 +4,19 @@ import './index.css';
 import Dashboard from './Dashboard';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'));
+// Read 'config' from global variable:
+const config = window.config
+
+if (config) {
+  config.widgets.forEach(widget => {
+    ReactDOM.render(<Dashboard />, document.querySelectorAll(widget.dataId));
+  })
+} else {
+  ReactDOM.render(
+    <div>'Missing "config" global variable. Please, refer to README.'</div>,
+    document.getElementById('root')
+  );
+}
 
 // If you want your Dashboard to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
