@@ -8,7 +8,9 @@
   "dependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "source-map-explorer": "^1.6.0"
+    "react-vega": "^4.0.2",
+    "source-map-explorer": "^1.6.0",
+    "vega-lib": "^4.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

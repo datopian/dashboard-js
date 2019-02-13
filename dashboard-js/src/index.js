@@ -9,7 +9,9 @@ const config = window.config
 
 if (config) {
   config.widgets.forEach(widget => {
-    ReactDOM.render(<Widget />, document.getElementById(widget.elementId));
+    // Compile a view TODO:
+    const compiledView = ''
+    ReactDOM.render(<Widget compiledView />, document.getElementById(widget.elementId));
   })
 } else {
   ReactDOM.render(
