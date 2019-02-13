@@ -1,14 +1,14 @@
-.Dashboard {
+.Widget {
   text-align: center;
 }
 
-.Dashboard-logo {
-  animation: Dashboard-logo-spin infinite 20s linear;
+.Widget-logo {
+  animation: Widget-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
 
-.Dashboard-header {
+.Widget-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,11 +19,11 @@
   color: white;
 }
 
-.Dashboard-link {
+.Widget-link {
   color: #61dafb;
 }
 
-@keyframes Dashboard-logo-spin {
+@keyframes Widget-logo-spin {
   from {
     transform: rotate(0deg);
   }

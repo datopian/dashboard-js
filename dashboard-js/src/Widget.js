@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './Dashboard.css';
+import './Widget.css';
 
-class Dashboard extends Component {
+class Widget extends Component {
   render() {
     return (
-      <div className="Dashboard">
-        <header className="Dashboard-header">
-          <img src={logo} className="Dashboard-logo" alt="logo" />
+      <div className="Widget">
+        <header className="Widget-header">
+          <img src={logo} className="Widget-logo" alt="logo" />
           <p>
-            Edit <code>src/Dashboard.js</code> and save to reload.
+            Edit <code>src/Widget.js</code> and save to reload.
           </p>
           <a
-            className="Dashboard-link"
+            className="Widget-link"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,4 +25,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default Widget;

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dashboard from './Dashboard';
+import Widget from './Widget';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Dashboard />, div);
+  ReactDOM.render(<Widget />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
