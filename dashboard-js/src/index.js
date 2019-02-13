@@ -9,7 +9,7 @@ const config = window.config
 
 if (config) {
   config.widgets.forEach(widget => {
-    ReactDOM.render(<Widget />, document.querySelectorAll(widget.dataId));
+    ReactDOM.render(<Widget />, document.getElementById(widget.elementId));
   })
 } else {
   ReactDOM.render(
