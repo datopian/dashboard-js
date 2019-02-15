@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Vega from 'react-vega';
+import useDatasetLoader from './hooks/useDatasetLoader';
 import logo from './logo.svg';
 import './Widget.css';
 
-class Widget extends Component {
-  render() {
-    return (
-      <div className="Widget">
-        <Vega spec={this.props.compiledView.viewspec} data='readItFromStore' />
-      </div>
-    );
-  }
+
+function Widget(props) {
+  const datasets = useDatasetLoader(props.widget.view.resources)
+
+  return (
+    <div className="Widget">{datasets.length}</div>
+  )
 }
 
 export default Widget;

@@ -8,10 +8,9 @@ import * as serviceWorker from './serviceWorker';
 const config = window.config
 
 if (config) {
+  // Render widgets:
   config.widgets.forEach(widget => {
-    // Compile a view TODO:
-    const compiledView = ''
-    ReactDOM.render(<Widget compiledView />, document.getElementById(widget.elementId));
+    ReactDOM.render(<Widget widget={widget} />, document.getElementById(widget.elementId));
   })
 } else {
   ReactDOM.render(

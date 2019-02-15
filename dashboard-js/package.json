@@ -6,6 +6,7 @@
     "react-scripts": "2.1.5"
   },
   "dependencies": {
+    "data.js": "git://github.com/datahq/data.js.git#90b8734ea49ab1509ac7809f26e191fd71d2bc33",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-vega": "^4.0.2",
