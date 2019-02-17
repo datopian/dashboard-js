@@ -7,13 +7,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
-    <link rel="icon" type="../image/png" href="img/favicon-32x32.png " sizes="32x32" />
+    <link rel="icon" type="../image/png" href="%PUBLIC_URL%/favicon.ico" sizes="32x32" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
         crossorigin="anonymous">
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -32,290 +31,100 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!--Start Wrapper-->
-    <div class="wrapper">
-        <!--Navbar-->
-        <div class="navbar navbar-inverse">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Powered by Viderum </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="navbar-right pull-right">
-                            <a href="https://github.com/datahq/city-indicators/" target="_blank">Github</a> |
-                            <a href="https://gitter.im/datahubio/chat" target="_blank">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End Navbar-->
-        <div class="container-fluid">
 
-            <!--Heading and Description Start-->
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <div class="main-heading text-center">
-                        <h1>London - City Dashborad</h1>
-                        <p>
-                            The London Dashboard is a free and open data-sharing portal where anyone can access data relating to the capital. Whether
-                            you're a citizen, business owner, researcher or developer, the site provides over 700 datasets to help
-                            you understand the city and develop solutions to London's problems.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--End Heading Description -->
+    <div class="container-fluid">
 
-            <!--Start graph cards-->
-            <div class="row row-card">
-                <div class="col-sm-3">
-                    <div class="background-card card-green card-height">
-                        <h2>Economy</h2>
-                          <div class="info">
-                            <span>4.5%</span> <br>
-                            <h4>Unemployment rate in November 2018</h4>
-                          </div>
+      <!--Heading and Description Start-->
+      <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+              <div class="main-heading text-center">
+                  <h1>London - City Dashborad</h1>
+                  <p>
+                      The London Dashboard is a free and open data-sharing portal where anyone can access data relating to the capital. Whether
+                      you're a citizen, business owner, researcher or developer, the site provides over 700 datasets to help
+                      you understand the city and develop solutions to London's problems.
+                  </p>
+              </div>
+          </div>
+      </div>
+      <!--End Heading Description -->
 
-                        <p>Data are sourced from the London Datastore.</p>
+      <!--Start graph cards-->
+      <div class="row row-card">
+          <div class="col-sm-3">
+              <div class="background-card card-green card-height">
+                  <h2>Economy</h2>
+                    <div class="info">
+                      <span>4.5%</span> <br>
+                      <h4>Unemployment rate in November 2018</h4>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-green">
-                          Gross Value Added (GVA)
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>London GVA per capita</h4>
-                            <p>Estimates of GVA per head from 1997</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views" id="gva"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/gva/r/gva.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-green">
-                          Unemployment rate
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>London unemployment rate</h4>
-                            <p>From 2009 to current</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views" id="unemployment"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/unemployment/r/unemployment-rate.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-green">
-                          Population
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Population projections</h4>
-                            <p>From 2001 to 2050</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/population/r/population.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-            <!--2nd Row-->
-            <div class="row row-card">
-                <div class="col-sm-3">
-                    <div class="background-card card-height card-blue">
-                        <h2>Health and Safety</h2>
-                        <div class="info">
-                          <span>11.6</span> <br>
-                          <h4>Average roadside PM2.5 Level</h4>
-                        </div>
-                        <p>Data are sourced from the London Datastore.</p>
+                  <p>Data are sourced from the London Datastore.</p>
+              </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="card card-height">
+                  <div class="card-header card-green">
+                    Gross Value Added (GVA)
+                  </div>
+                  <div class="card-body">
+                    <div class="content-top">
+                      <h4>London GVA per capita</h4>
+                      <p>Estimates of GVA per head from 1997</p>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-blue">
-                          Crime
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Recorded Crime</h4>
-                            <p>Total recorded offences</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/crime/r/recorded-offences.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                    <div class="content-main">
+                      <div class="react-me" data-type="data-views" id="gva"></div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-blue">
-                          Life expectancy
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Life Expectancy at birth</h4>
-                            <p>Female & Male</p>
-                          </div>
-                          <div class="content-main">
-                            <!-- <div class="react-me" data-type="data-views"></div> -->
-                          </div>
-                          <div class="content-bottom">
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                    <div class="content-bottom">
+                      <p><a href="https://datahub.io/london/gva/r/gva.csv">Download raw data</a></p>
+                      <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-blue">
-                          Air quality
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Average PM2.5 Levels</h4>
-                            <p>Roadside</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/air-quality/r/monthly-averages.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="card card-height">
+                  <div class="card-header card-green">
+                    Unemployment rate
+                  </div>
+                  <div class="card-body">
+                    <div class="content-top">
+                      <h4>London unemployment rate</h4>
+                      <p>From 2009 to current</p>
                     </div>
-                </div>
-            </div>
-            <!--End 2nd Row-->
-
-            <!--Start 3rd Row-->
-            <div class="row row-card">
-                <div class="col-sm-3">
-                    <div class="background-card card-height card-red">
-                        <h2>Livability</h2>
-                        <div class="info">
-                          <span>+300M</span> <br>
-                          <h4>Transport journeys in December 2018</h4>
-                        </div>
-
-                        <p>Data are sourced from the London Datastore.</p>
+                    <div class="content-main">
+                      <div class="react-me" data-type="data-views" id="unemployment"></div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-red">
-                          House prices
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Median Housing Affordability</h4>
-                            <p>Comparison between London and England</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/home-affordability/r/london-home-index.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                    <div class="content-bottom">
+                      <p><a href="https://datahub.io/london/unemployment/r/unemployment-rate.csv">Download raw data</a></p>
+                      <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-red">
-                          Transport (delays)
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Lost Customer Hours</h4>
-                            <p>Total lost hours in the tube</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/underground-performance/r/key-trends.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="card card-height">
+                  <div class="card-header card-green">
+                    Population
+                  </div>
+                  <div class="card-body">
+                    <div class="content-top">
+                      <h4>Population projections</h4>
+                      <p>From 2001 to 2050</p>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card card-height">
-                        <div class="card-header card-red">
-                          Transport journeys
-                        </div>
-                        <div class="card-body">
-                          <div class="content-top">
-                            <h4>Number of Journeys</h4>
-                            <p>Underground, bus and other journeys</p>
-                          </div>
-                          <div class="content-main">
-                            <div class="react-me" data-type="data-views"></div>
-                          </div>
-                          <div class="content-bottom">
-                            <p><a href="https://datahub.io/london/public-transport/r/london-public-transport.csv">Download raw data</a></p>
-                            <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
-                          </div>
-                        </div>
+                    <div class="content-main">
+                      <div class="react-me" data-type="data-views"></div>
                     </div>
-                </div>
-            </div>
-            <!--End 3rd Row-->
+                    <div class="content-bottom">
+                      <p><a href="https://datahub.io/london/population/r/population.csv">Download raw data</a></p>
+                      <p>Source: <a href="https://data.london.gov.uk/" target="_blank">London Datastore</a></p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
     </div>
-    <!--End Wrapper-->
-
-    <!--Footer-->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <a  href="#"><img width="150" src="img/logo.png"></a>
-                </div>
-                <div class="col-sm-6 pull-right">
-                    <ul class="list-unstyled list-inline text-right">
-                            <li><a href="https://datahub.io/blog" target="_blank">Blog</a></li>
-                            <li><a href="https://gitter.im/datahubio/chat" target="_blank">Contact</a></li>
-                            <li><a href="https://github.com/datahq/city-indicators/" target="_blank">Gitub</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
       var config = {

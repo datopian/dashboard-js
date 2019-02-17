@@ -1,10 +1,24 @@
 ## Usage
 
-TODO
+Set up `config` global variable available from `window.config` where you can specify how the dashboard should be rendered:
+
+```
+{
+  widgets: [...],
+  datasets: [...]
+}
+```
+
+* `widgets` - a list of objects where each object contains information about where a widget should be injected and how it should look like. See [public/index.html](https://github.com/datahq/dashboard-js/blob/master/public/index.html) for an example.
+* `datasets` - a list of dataset URLs.
 
 ## Maintenance
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
+
+First of all, install dependencies:
+
+`npm install` or `yarn`
 
 In the project directory, you can run:
 
