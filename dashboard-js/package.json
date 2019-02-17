@@ -6,7 +6,7 @@
     "react-scripts": "2.1.5"
   },
   "dependencies": {
-    "data.js": "git://github.com/datahq/data.js.git#90b8734ea49ab1509ac7809f26e191fd71d2bc33",
+    "data.js": "git://github.com/datahq/data.js.git#52a0dbe9beb85329cc96b7fd7f28c884d7b07d65",
     "datapackage-render": "git+https://github.com/frictionlessdata/datapackage-render-js.git",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
