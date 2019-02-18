@@ -3,7 +3,6 @@ import Vega from 'react-vega';
 import * as dprender from 'datapackage-render'
 
 import useDatasetLoader from './hooks/useDatasetLoader';
-import logo from './logo.svg';
 import './Widget.css';
 
 
