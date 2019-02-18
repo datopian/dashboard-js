@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "source-map-explorer": "^1.6.0"
   },
   "dependencies": {
-    "data.js": "git://github.com/datahq/data.js.git#52a0dbe9beb85329cc96b7fd7f28c884d7b07d65",
+    "data.js": "^0.12.2",
     "datapackage-render": "git+https://github.com/frictionlessdata/datapackage-render-js.git",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-vega": "^4.0.2",
-    "source-map-explorer": "^1.6.0",
     "vega-lib": "^4.4.0"
   },
   "scripts": {
