@@ -11,6 +11,7 @@
     "datapackage-render": "git+https://github.com/frictionlessdata/datapackage-render-js.git",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-spinkit": "^3.0.0",
     "react-vega": "^4.0.2",
     "vega-lib": "^4.4.0"
   },

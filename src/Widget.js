@@ -1,5 +1,6 @@
 import React from 'react';
 import Vega from 'react-vega';
+import Spinner from 'react-spinkit';
 import * as dprender from 'datapackage-render'
 
 import useDatasetLoader from './hooks/useDatasetLoader';
@@ -26,7 +27,7 @@ function Widget(props) {
     }
   }
   return (
-    <div>'Loading...'</div>
+    <Spinner name='ball-beat' />
   )
 }
 
