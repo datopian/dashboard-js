@@ -7,7 +7,7 @@ import './Widget.css';
 
 
 function Widget(props) {
-  const datasets = useDatasetLoader()
+  const datasets = useDatasetLoader(props.widget.view.resources[0].datasetId)
   const dataset = datasets.find(dataset => dataset.descriptor.name === props.widget.view.resources[0].datasetId)
   if (dataset) {
     let compiledView = dprender.compileView(props.widget.view, dataset.descriptor)
