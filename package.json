@@ -7,7 +7,7 @@
     "source-map-explorer": "^1.6.0"
   },
   "dependencies": {
-    "data.js": "^0.12.2",
+    "data.js": "^0.12.3",
     "datapackage-render": "git+https://github.com/frictionlessdata/datapackage-render-js.git",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
