@@ -37,14 +37,8 @@
       <!--Start graph cards-->
             <div class="row row-card">
                 <div class="col-sm-3">
-                    <div class="background-card card-green card-height">
-                        <h2>Economy</h2>
-                          <div class="info">
-                            <span>4.5%</span> <br>
-                            <h4>Unemployment rate in November 2018</h4>
-                          </div>
+                    <div class="background-card card-green card-height" id="economy">
 
-                        <p>Data are sourced from the London Datastore.</p>
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -1567,6 +1561,28 @@
               }
             }
           ]
+        }
+      }
+    },
+    {
+      "elementId": "economy",
+      "view": {
+        "metadata": {},
+        "resources": [
+          {
+            "datasetId": "unemployment",
+            "name": "unemployment-rate",
+            "transform": []
+          }
+        ],
+        "specType": "figure",
+        "spec": {
+          "title": "Economy",
+          "operation": "show-latest-data",
+          "fieldName": "unemployment_rate",
+          "suffix": "%",
+          "legend": "Recent unemployment rate",
+          "footer": "Data are sourced from the London Datastore."
         }
       }
     }
