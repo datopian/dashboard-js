@@ -1,24 +1,51 @@
-## Usage
+**dashboard-js** is a lightweight javascript library built for quickly creating dashboards using data packaged data sources. If you need to visualize and present data in a convenient way and you need to do that fast then **dashboard-js** is a library for you. There are many advantages to dashboard-js:
 
-Set up `config` global variable available from `window.config` where you can specify how the dashboard should be rendered:
+* It requires only basic knowledge of HTML, CSS
+* It's modular and extendable through the use of widgets
+* It's lightweight, fast to include and to begin with
 
+
+## Getting started
+
+### Installation
+
+Simply import bundled **dashboard-js** code inside of your HTML file:
+
+```javascript
+<script type="text/javascript" src="https://combinatronics.com/datopian/dashboard-js/master/build/static/js/main.js"></script>
 ```
-{
+
+### Setup your Dashboard
+
+Your dashboard will consist of one or more widgets. You'll need to have placeholder element for each widget and reference it by `id` in the `config`:
+
+```html
+<div id='testWidget'></div>
+```
+
+### Widget configuration
+
+To start working with widgets you need to set up `config` global variable available from `window.config` where you can specify how the dashboard should be rendered:
+
+```js
+var config = {
   widgets: [...],
   datasets: [...]
 }
 ```
 
-* `widgets` - a list of objects where each object contains information about where a widget should be injected and how it should look like. See [public/index.html](https://github.com/datahq/dashboard-js/blob/master/public/index.html) for an example.
+* `widgets` - a list of objects where each object contains information about where a widget should be injected and how it should look like.
 * `datasets` - a list of dataset URLs.
 
-A standard widget should have following structure:
+A standard widget object should have the following structure:
 
 ```
 {
-  "elementId": "",
+  "elementId": "testWidget",
   "view": {
-    "metadata": {},
+    "title": "",
+    "legend": "",
+    "footer": "",
     "resources": [
       {
         "datasetId": "",
@@ -38,51 +65,41 @@ where:
 
 * `elementId` - is "id" of the attribute you want to use as a container of your widget.
 * `view` - descriptor of a view (widget).
-  * `metadata` - metadata such as title, name etc.
-  * `resources` - list of resources needed for a widget and required manipulations (transforms).
+  * `title`, `legend`, `footer` - these are optional metadata.
+  * `resources` - a list of resources needed for a widget and required manipulations (transforms).
   	* `datasetId` - the id (name) of the dataset from which the resource is extracted.
   	* `name` - name of the resource.
   	* `transform` - transformations required for a resource.
   * `specType` - type of a widget, e.g., `vega` or `figure`.
   * `spec` - specification for selected widget type.
 
-### Figure widget
+#### Figure widget
 
-A specification for "Figure widget" would have following structure:
+A specification for "Figure widget" would have the following structure:
 
 ```
 {
-  "title": "",
-  "operation": "",
   "fieldName": "",
   "suffix": "",
-  "legend": "",
-  "footer": ""
+  "prefix": ""
 }
 ```
 
-which will be rendered as HTML:
+where "suffix" and "prefix" attributes are optional. The "fieldName" attribute will be used to extract specific value from a row. In this example we extract the latest data and display it as a "Figure" widget - https://github.com/datopian/dashboard-js/tree/master/example.
 
-```
-<h2>Title</h2>
-<div className='info'>
-  <span>Value + suffix</span> <br />
-  <h4>Legend</h4>
-</div>
-
-<p>Footer</p>
-```
-
-where "Value" is calculated based on "operation" and "fieldName" properties. Currently, only basic two types of operations are supported:
-
-* `show-first-data` - takes the first entry from the array of values.
-* `show-latest-data` - takes the last entry from the array of values.
-* `average` - coming soon.
-* `min` and `max` - coming soon.
-
-### Vega widget
+#### Vega widget
 
 You can find information about Vega here: https://datahub.io/docs/features/views#vega-graphs
+
+### Example
+
+You can find basic example of how to use **dashboard-js** here - https://github.com/datopian/dashboard-js/tree/master/example
+
+### More complex example
+
+One of the good examples of projects built using dashboard-js is the [London - City Dashboard](https://london.datahub.io/) a free and open data-sharing portal where anyone can access data related to London. See the code here - https://github.com/datahq/city-indicators.
+
+![](https://i.imgur.com/JoGMc3W.png)
 
 ## Maintenance
 
