@@ -1,7 +1,7 @@
 {
   "name": "dashboard-js",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "react-scripts": "2.1.5",
     "rewire": "^4.0.1",
