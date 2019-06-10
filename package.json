@@ -1,6 +1,6 @@
 {
-  "name": "@datahub/dashboard",
-  "version": "0.1.0",
+  "name": "@datopian/dashboard",
+  "version": "0.1.1",
   "private": false,
   "devDependencies": {
     "react-scripts": "2.1.5",
