@@ -1,6 +1,6 @@
 {
   "name": "@datopian/dashboard",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "devDependencies": {
     "react-scripts": "2.1.5",
@@ -8,7 +8,7 @@
     "source-map-explorer": "^1.6.0"
   },
   "dependencies": {
-    "data.js": "^0.12.3",
+    "data.js": "^0.12.4",
     "datapackage-render": "git+https://github.com/frictionlessdata/datapackage-render-js.git",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
