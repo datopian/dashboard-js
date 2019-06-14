@@ -114,14 +114,12 @@ DatapackageRender->>DashboardJS: compiled view
 DashboardJS-->>DashboardJS: render Vega or Figure component
 DashboardJS->>Browser: Figure or Vega chart
 ```
-![](https://imgur.com/a/yYfmGyg)
+![](https://i.imgur.com/ZJ971sb.png)
 
 ## Datasets, packages, resources, Oh My!
 
-:::info
 "A data package can contain multiple resources" ==
 "A dataset can contain multiple files"
-:::
 
 ## Noteable Dependencies
 Dashboard-js is built on the following core dependencies:
