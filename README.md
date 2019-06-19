@@ -101,6 +101,33 @@ One of the good examples of projects built using dashboard-js is the [London - C
 
 ![](https://i.imgur.com/JoGMc3W.png)
 
+## How it works
+
+```mermaid
+sequenceDiagram
+
+Browser->>DashboardJS: config
+DashboardJS->>DataJS: identifier (URL to dataset)
+DataJS->>DashboardJS: compiled data package
+DashboardJS->>DatapackageRender: view + compiled data package
+DatapackageRender->>DashboardJS: compiled view
+DashboardJS-->>DashboardJS: render Vega or Figure component
+DashboardJS->>Browser: Figure or Vega chart
+```
+![](https://i.imgur.com/ZJ971sb.png)
+
+## Datasets, packages, resources, Oh My!
+
+"A data package can contain multiple resources" ==
+"A dataset can contain multiple files"
+
+## Noteable Dependencies
+Dashboard-js is built on the following core dependencies:
+
+* data.js - https://github.com/datopian/data.js
+* datapackage-render - https://github.com/frictionlessdata/datapackage-render-js
+* transforms - https://github.com/frictionlessdata/datapackage-render-js/blob/master/lib/transform.js
+
 ## Maintenance
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
