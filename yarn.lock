@@ -2656,9 +2656,9 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-data.js@^0.12.4:
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/data.js/-/data.js-0.12.4.tgz#de6a33c50b352444c788017c10db3566b617c7f1"
+data.js@^0.12.5:
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/data.js/-/data.js-0.12.5.tgz#10d348248331ba93bc9f3f4a2261dd22ff56dbd3"
   dependencies:
     chardet "^0.4.2"
     csv-parse "^1.2.1"
