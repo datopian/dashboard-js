@@ -1,8 +1,24 @@
 {
   "name": "@datopian/dashboard",
-  "version": "0.1.4",
+  "main": "/dist/index.js",
+  "module": "/dist/index.js",
+  "version": "0.1.5",
   "private": false,
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "react-scripts": "2.1.5",
     "rewire": "^4.0.1",
     "source-map-explorer": "^1.6.0"
@@ -20,6 +36,7 @@
     "start": "react-scripts start",
     "build": "node ./scripts/build-non-split.js && mv build/static/js/*.js build/static/js/main.js",
     "build-optimized": "react-scripts build",
+    "build:package": "rm -rf dist/ && mkdir dist && NODE_ENV=production npx babel src/ -d dist/ --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*"
