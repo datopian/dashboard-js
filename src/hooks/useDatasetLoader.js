@@ -23,8 +23,7 @@ function useDatasetLoader(datasetId) {
         const knownTabularFormats = ['csv', 'tsv', 'dsv']
         if (
           !resource.descriptor._values &&
-          knownTabularFormats.indexOf(resource.descriptor.format) !== -1 &&
-          (resource.descriptor.datahub && resource.descriptor.datahub.type === 'source/tabular')
+          knownTabularFormats.indexOf(resource.descriptor.format) !== -1
         ) {
           const rowStream = await resource.rows({keyed: true})
           resource.descriptor._values = await toArray(rowStream)
